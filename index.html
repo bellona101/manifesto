@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="" data-trae-theme="light"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开张宣言 · 我决定把一个死号，盘成自己的开源仓库</title>
+<style>
+  @font-face { font-family: 'Lora'; src: url('./_shared/fonts/Lora-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Lora'; src: url('./_shared/fonts/Lora-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Lora'; src: url('./_shared/fonts/Lora-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Lora'; src: url('./_shared/fonts/Lora-BoldItalic.ttf') format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'WorkSans'; src: url('./_shared/fonts/WorkSans-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'WorkSans'; src: url('./_shared/fonts/WorkSans-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'WorkSans'; src: url('./_shared/fonts/WorkSans-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'IBMPlexMono'; src: url('./_shared/fonts/IBMPlexMono-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'IBMPlexMono'; src: url('./_shared/fonts/IBMPlexMono-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+
+  :root {
+    --bg: #FAF6EE;
+    --bg2: #F1E9D9;
+    --ink: #2A2620;
+    --muted: #6F6557;
+    --rule: #E4D9C4;
+    --accent: #B8503A;
+    --accent2: #4E7355;
+    --gold: #E8C77A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'WorkSans', 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead {
+    text-align: center;
+    padding: 4rem 0 2.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead .seal {
+    display: inline-block;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.3rem 0.9rem;
+    margin-bottom: 1.6rem;
+  }
+  .masthead h1 {
+    font-family: 'Lora', 'Noto Serif SC', serif;
+    font-weight: 700;
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+  .masthead h1 .em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .masthead .deck {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 36ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .masthead .byline {
+    margin-top: 1.8rem;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.74rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- ARTICLE ---------- */
+  article { padding: 3rem 0 1rem; }
+
+  .lede {
+    font-family: 'Lora', 'Noto Serif SC', serif;
+    font-size: 1.18rem;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 2.2rem;
+    padding-left: 1.2rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  p { margin-bottom: 1.3rem; }
+  p:last-child { margin-bottom: 0; }
+
+  mark.key { background: none; color: var(--accent); font-weight: 600; }
+
+  h2 {
+    font-family: 'Lora', 'Noto Serif SC', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 2.8rem 0 1.2rem;
+    line-height: 1.3;
+  }
+  h2 .em { font-style: italic; font-weight: 400; color: var(--accent2); }
+  h2::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 0.9rem;
+  }
+
+  h3 {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 1.8rem 0 0.8rem;
+    color: var(--ink);
+  }
+
+  /* ---------- ARCHIVE TABLE ---------- */
+  .archive-intro { margin: 1.6rem 0 1rem; }
+  .archive-box {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.6rem 1.4rem 0.6rem;
+    margin: 1.4rem 0;
+  }
+  .archive-box .ab-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .archive-box .ab-title { font-family: 'Lora', serif; font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+  .archive-box .ab-tag { font-family: 'IBMPlexMono', monospace; font-size: 0.66rem; color: var(--accent); letter-spacing: 0.1em; }
+  .arch-list { list-style: none; }
+  .arch-list li {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 0.8rem;
+    align-items: baseline;
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 0.9rem;
+  }
+  .arch-list li:last-child { border-bottom: none; }
+  .arch-list .num { font-family: 'IBMPlexMono', monospace; font-size: 0.72rem; color: var(--accent); font-weight: 700; }
+  .arch-list .ttl { font-family: 'Lora', serif; font-weight: 600; color: var(--ink); }
+  .arch-list .ttl small { display: block; font-family: 'WorkSans', sans-serif; font-weight: 400; font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
+  .arch-list .verdict { font-family: 'IBMPlexMono', monospace; font-size: 0.62rem; color: var(--muted); white-space: nowrap; }
+  .arch-list .verdict.keep { color: var(--accent2); }
+
+  /* ---------- CALLOUT ---------- */
+  .callout {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 10px;
+    padding: 1.8rem 1.8rem;
+    margin: 2rem 0;
+  }
+  .callout .label {
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .callout p {
+    font-family: 'Lora', 'Noto Serif SC', serif;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .callout p .hl { color: var(--gold); font-weight: 700; }
+
+  /* ---------- QUOTE ---------- */
+  blockquote {
+    border-left: 3px solid var(--accent2);
+    padding: 0.4rem 0 0.4rem 1.3rem;
+    margin: 1.6rem 0;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ---------- COLUMNS ---------- */
+  .col-grid { margin: 1.4rem 0; }
+  .col-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .col-row:last-child { border-bottom: none; }
+  .col-row .cn {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 32px;
+  }
+  .col-row .cd h4 { font-family: 'Lora', serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem; }
+  .col-row .cd h4 .en { font-family: 'IBMPlexMono', monospace; font-size: 0.66rem; color: var(--accent2); letter-spacing: 0.08em; margin-left: 0.5rem; font-weight: 400; }
+  .col-row .cd p { font-size: 0.88rem; color: var(--muted); margin: 0; line-height: 1.55; }
+
+  /* ---------- PROMISE BAND ---------- */
+  .promise {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 2rem 1.8rem;
+    margin: 2rem 0;
+  }
+  .promise .p-title { font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; color: var(--accent); }
+  .promise ul { list-style: none; }
+  .promise li {
+    padding: 0.5rem 0 0.5rem 1.6rem;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .promise li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ---------- DIVIDER ---------- */
+  .divider {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--rule);
+    font-size: 0.8rem;
+    letter-spacing: 1rem;
+  }
+
+  /* ---------- COLOPHON ---------- */
+  .colophon {
+    text-align: center;
+    padding: 2.5rem 0 3rem;
+    border-top: 1px solid var(--rule);
+    margin-top: 2rem;
+  }
+  .colophon .mark { font-family: 'Lora', serif; font-style: italic; font-size: 1.4rem; color: var(--accent); margin-bottom: 0.5rem; }
+  .colophon .meta { font-family: 'IBMPlexMono', monospace; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; }
+
+  /* ---------- DROP CAP ---------- */
+  .dropcap::first-letter {
+    font-family: 'Lora', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    float: left;
+    line-height: 0.9;
+    margin: 0.15rem 0.5rem 0 0;
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .arch-list li { grid-template-columns: 24px 1fr; }
+    .arch-list .verdict { grid-column: 2; text-align: left; padding-top: 0.2rem; }
+  }
+</style>
+<style id="trae-panel-enter-style">
+        @keyframes trae-panel-enter {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+      </style><script>document.documentElement.setAttribute('data-trae-theme', "light");window.__TRAE_DISABLE_LEGACY_ADD_TO_CHAT__=true;</script><style data-trae-edit-ui="true" id="trae-previewer-tools-styles">:root {
+  --trae-layer-image-download: 89990;
+  --trae-layer-browser-inspect-overlay: 90000;
+  --trae-layer-browser-inspect-highlight: 90010;
+  --trae-layer-browser-inspect-action: 90020;
+  --trae-layer-text-selection-action: 90030;
+  --trae-layer-edit-tooltip: 100095;
+}
+:root,
+[data-trae-theme='dark'] {
+  --trae-bg-base-default: #171717;
+  --trae-bg-menu: #222427;
+  --trae-bg-overlay-l1: rgba(255, 255, 255, 0.04);
+  --trae-bg-overlay-l2: rgba(255, 255, 255, 0.08);
+  --trae-bg-overlay-l3: rgba(255, 255, 255, 0.12);
+  --trae-bg-overlay-l4: rgba(255, 255, 255, 0.16);
+  --trae-bg-invert: #f5f9fe;
+  --trae-bg-invert-hover: #e8ecf0;
+  --trae-bg-invert-active: #dce0e4;
+  --trae-bg-invert-disabled: rgba(224, 226, 242, 0.12);
+  --trae-border-l1: #e0e2f217;
+  --trae-border-l2: rgba(255, 255, 255, 0.12);
+  --trae-border-l3: rgba(255, 255, 255, 0.08);
+  --trae-border-neutral-l3: rgba(229, 229, 229, 0.20);
+  --trae-border-brand: #6a6fff;
+  --trae-text-default: #f5f9fe;
+  --trae-text-default-hover: #f5f9fe;
+  --trae-text-default-active: #f5f9fe;
+  --trae-text-secondary: rgba(245, 249, 254, 0.5);
+  --trae-text-tertiary: rgba(245, 249, 254, 0.4);
+  --trae-text-disabled: #666b75;
+  --trae-text-onaccent: #222427;
+  --trae-icon-default: #f5f9fe;
+  --trae-icon-secondary: rgba(245, 249, 254, 0.5);
+  --trae-icon-brand: #6a6fff;
+  --trae-icon-onaccent: #222427;
+  --trae-status-success: #22c55e;
+  --trae-status-primary: #3b82f6;
+  --trae-status-primary-default: #387bff;
+  --trae-status-primary-surface-l1: rgba(53, 121, 255, 0.18);
+  --trae-status-success-default: #33c192;
+  --trae-status-success-surface-l1: rgba(0, 165, 110, 0.18);
+  --trae-status-error-default: #f65a5a;
+  --trae-status-error-surface-l1: rgba(246, 70, 70, 0.18);
+  --trae-annotation-marker-bg: #4b3fe3;
+  --trae-annotation-marker-text: #ffffff;
+  --trae-annotation-region-border: var(--trae-status-primary-default);
+  --trae-region-outside-mask-bg: rgba(0, 0, 0, 0.32);
+  --trae-annotation-rect-border: var(--trae-status-error-default);
+  --trae-annotation-arrow-anchor-bg: var(--trae-status-primary-default);
+  --trae-panel-shadow: 0px 6px 24px -1px rgba(0, 0, 0, 0.16);
+  --trae-floating-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+  --trae-shadow-elevation-50: 0 1px 2px -1px rgba(0, 0, 0, 0.45);
+  --trae-tab-active-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.16);
+}
+
+[data-trae-theme='light'] {
+  --trae-bg-base-default: #fafafa;
+  --trae-bg-menu: #ffffff;
+  --trae-bg-overlay-l1: rgba(0, 0, 0, 0.04);
+  --trae-bg-overlay-l2: rgba(0, 0, 0, 0.06);
+  --trae-bg-overlay-l3: rgba(0, 0, 0, 0.08);
+  --trae-bg-overlay-l4: rgba(0, 0, 0, 0.12);
+  --trae-bg-invert: #1f2328;
+  --trae-bg-invert-hover: #32383f;
+  --trae-bg-invert-active: #444d56;
+  --trae-bg-invert-disabled: rgba(115, 115, 115, 0.20);
+  --trae-border-l1: rgba(0, 0, 0, 0.1);
+  --trae-border-l2: rgba(0, 0, 0, 0.12);
+  --trae-border-l3: rgba(0, 0, 0, 0.08);
+  --trae-border-neutral-l3: rgba(115, 115, 115, 0.36);
+  --trae-border-brand: #4b3fe3;
+  --trae-text-default: #1f2328;
+  --trae-text-default-hover: #111214;
+  --trae-text-default-active: #111214;
+  --trae-text-secondary: rgba(31, 35, 40, 0.5);
+  --trae-text-tertiary: rgba(31, 35, 40, 0.4);
+  --trae-text-disabled: #a1a1a1;
+  --trae-text-onaccent: #ffffff;
+  --trae-icon-default: #1f2328;
+  --trae-icon-secondary: rgba(31, 35, 40, 0.5);
+  --trae-icon-brand: #4b3fe3;
+  --trae-icon-onaccent: #ffffff;
+  --trae-status-success: #22c55e;
+  --trae-status-primary: #3b82f6;
+  --trae-status-primary-default: #2f74ff;
+  --trae-status-primary-surface-l1: rgba(47, 116, 255, 0.12);
+  --trae-status-success-default: #15a877;
+  --trae-status-success-surface-l1: rgba(64, 176, 139, 0.12);
+  --trae-status-error-default: #e8463a;
+  --trae-status-error-surface-l1: rgba(232, 70, 58, 0.12);
+  --trae-annotation-marker-bg: #4b3fe3;
+  --trae-annotation-marker-text: #ffffff;
+  --trae-annotation-region-border: var(--trae-status-primary-default);
+  --trae-region-outside-mask-bg: rgba(0, 0, 0, 0.18);
+  --trae-annotation-rect-border: var(--trae-status-error-default);
+  --trae-annotation-arrow-anchor-bg: var(--trae-status-primary-default);
+  --trae-panel-shadow: 0px 6px 24px -1px rgba(24, 24, 24, 0.06);
+  --trae-floating-shadow: 0px 2px 8px 0px rgba(24, 24, 24, 0.2);
+  --trae-shadow-elevation-50: 0 1px 2px -1px rgba(24, 24, 24, 0.08);
+  --trae-tab-active-shadow: 0px 1px 2px -1px rgba(24, 24, 24, 0.08);
+}
+
+@keyframes trae-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes trae-edit-bar-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes trae-edit-bar-leave {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+}
+
+@keyframes trae-edit-panel-leave {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+}
+
+.trae-edit-mode-active:not(.trae-edit-mode-dragging) body *:not([data-trae-edit-ui]):not([data-trae-edit-ui] *) {
+  transition: none !important;
+  animation-play-state: paused !important;
+}
+
+.trae-edit-mode-reorder-hit-test [data-trae-edit-ui]:not(.trae-edit-pointer-shield),
+.trae-edit-mode-reorder-hit-test [data-trae-edit-ui]:not(.trae-edit-pointer-shield) * {
+  pointer-events: none !important;
+}
+
+.trae-browser-inspect-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--trae-layer-browser-inspect-overlay);
+  pointer-events: auto;
+  background: transparent;
+}
+
+.trae-browser-inspect-highlight-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--trae-layer-browser-inspect-highlight);
+  display: none;
+}
+
+.trae-browser-inspect-highlight-tag {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 18px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: var(--trae-status-success-default);
+  color: var(--trae-text-onaccent);
+  font-size: 12px;
+  font-weight: 400;
+  display: none;
+  align-items: center;
+  z-index: var(--trae-layer-browser-inspect-action);
+}
+
+.trae-browser-inspect-highlight-box-show {
+  display: flex;
+}
+
+.trae-browser-inspect-highlight-tag.trae-browser-inspect-highlight-box-show {
+  display: none;
+}
+
+.trae-browser-inspect-select-button.trae-browser-inspect-highlight-box-show {
+  display: block !important;
+}
+
+.trae-browser-inspect-select-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: var(--trae-layer-browser-inspect-action);
+}
+
+.trae-browser-inspect-select-highlight-box {
+  background: transparent !important;
+}
+
+.trae-browser-inspect-select-highlight-box .trae-browser-inspect-highlight-tag {
+  background-color: var(--trae-status-success-default);
+}
+
+.trae-add-to-chat-card {
+  display: block;
+  overflow: hidden;
+  background: var(--trae-bg-menu);
+  border: 1px solid var(--trae-border-l1);
+  border-radius: 8px;
+  box-shadow: var(--trae-floating-shadow);
+  transition:
+    width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trae-add-to-chat-content {
+  position: relative;
+  width: max-content;
+}
+
+.trae-fade-exit {
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+.trae-fade-enter {
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
+
+.trae-buttons-view {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  background: transparent;
+}
+
+.trae-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.trae-action-button:hover {
+  background: var(--trae-bg-overlay-l2);
+}
+
+.trae-action-button:active {
+  background: var(--trae-bg-overlay-l3);
+}
+
+.trae-action-button:focus-visible {
+  outline: 2px solid var(--trae-status-primary);
+  outline-offset: 1px;
+}
+
+.trae-action-button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--trae-icon-default);
+  flex-shrink: 0;
+}
+
+.trae-action-button-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--trae-text-default);
+  white-space: nowrap;
+}
+
+.trae-edit-toolbar-button-active {
+  background: var(--bg-bg-brand-disabled, rgba(75, 63, 227, 0.22)) !important;
+  color: var(--icon-icon-brand, #4b3fe3) !important;
+  font-weight: bold !important;
+}
+
+.trae-edit-toolbar-button-active:hover {
+  background: var(--bg-bg-brand-popup, rgba(170, 183, 255, 0.36)) !important;
+}
+
+.trae-edit-toolbar button[data-action='alignment-dropdown']:hover,
+.trae-edit-toolbar button[data-action='text-align-dropdown']:hover,
+.trae-edit-toolbar button[data-action='font-decrease']:hover,
+.trae-edit-toolbar button[data-action='font-increase']:hover,
+.trae-edit-toolbar button[data-action^='align-']:hover {
+  border-radius: 8px;
+  background: var(--bg-bg-overlay-l1, rgba(115, 115, 115, 0.08)) !important;
+}
+
+.trae-edit-toolbar button[data-action='alignment-dropdown']:active,
+.trae-edit-toolbar button[data-action='text-align-dropdown']:active,
+.trae-edit-toolbar button[data-action='font-decrease']:active,
+.trae-edit-toolbar button[data-action='font-increase']:active,
+.trae-edit-toolbar button[data-action^='align-']:active {
+  border-radius: 8px;
+  background: var(--bg-bg-overlay-l2, rgba(115, 115, 115, 0.12)) !important;
+}
+
+.trae-comment-input {
+  background: transparent;
+  color: var(--trae-text-default);
+  caret-color: var(--trae-text-default);
+}
+
+.trae-comment-input::placeholder {
+  color: var(--trae-text-tertiary);
+}
+
+.trae-point-edit-bar,
+.trae-point-comment-input-bar,
+.trae-comment-only-panel {
+  transform-origin: top center;
+  will-change: opacity, transform;
+}
+
+.trae-edit-bar-enter {
+  animation: trae-edit-bar-enter var(--transition-normal, 0.18s cubic-bezier(0.2, 0, 0, 1)) both;
+}
+
+.trae-edit-bar-leave {
+  pointer-events: none;
+  animation: trae-edit-bar-leave var(--transition-fast, 0.14s ease) both;
+}
+
+.trae-edit-panel-leave {
+  pointer-events: none;
+  animation: trae-edit-panel-leave var(--transition-fast, 0.14s ease) both;
+}
+
+.trae-edit-panel [data-trae-tooltip] {
+  position: relative;
+}
+
+.trae-edit-panel [data-trae-tooltip]::after {
+  content: attr(data-trae-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  z-index: var(--trae-layer-edit-tooltip);
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--bg-bg-invert, var(--trae-bg-invert));
+  color: var(--text-text-onaccent, var(--trae-text-onaccent));
+  box-shadow: var(--trae-floating-shadow);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang SC', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.039px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateX(-50%);
+  visibility: hidden;
+}
+
+.trae-edit-panel [data-trae-tooltip]::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 5px);
+  z-index: var(--trae-layer-edit-tooltip);
+  width: 8px;
+  height: 4px;
+  background: var(--bg-bg-invert, var(--trae-bg-invert));
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.trae-edit-panel [data-trae-tooltip]:hover::after,
+.trae-edit-panel [data-trae-tooltip]:focus-visible::after,
+.trae-edit-panel [data-trae-tooltip]:hover::before,
+.trae-edit-panel [data-trae-tooltip]:focus-visible::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.trae-comment-btn {
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.trae-comment-btn:disabled {
+  cursor: not-allowed;
+}
+
+.trae-comment-btn:focus-visible {
+  outline: 2px solid var(--trae-status-primary);
+  outline-offset: 1px;
+}
+
+.trae-comment-btn-primary {
+  background: var(--trae-bg-invert);
+  color: var(--trae-text-onaccent);
+}
+
+.trae-comment-btn-primary:hover:not(:disabled) {
+  background: var(--trae-bg-invert-hover);
+}
+
+.trae-comment-btn-primary:active:not(:disabled) {
+  background: var(--trae-bg-invert-active);
+}
+
+.trae-comment-btn-primary:disabled {
+  background: var(--trae-bg-invert-disabled);
+  color: var(--trae-text-disabled);
+}
+
+.trae-comment-btn-secondary {
+  background: var(--trae-bg-overlay-l2);
+  color: var(--trae-text-default);
+}
+
+.trae-comment-btn-secondary:hover:not(:disabled) {
+  background: var(--trae-bg-overlay-l3);
+}
+
+.trae-comment-btn-secondary:active:not(:disabled) {
+  background: var(--trae-bg-overlay-l4);
+}
+
+.trae-comment-btn-secondary:disabled {
+  background: var(--trae-bg-overlay-l2);
+  color: var(--trae-text-disabled);
+}
+
+.trae-comment-btn-text {
+  background: transparent;
+  color: var(--trae-text-default);
+}
+
+.trae-comment-btn-text:hover:not(:disabled) {
+  border-radius: 8px;
+  background: var(--bg-bg-overlay-l1, var(--trae-bg-overlay-l1));
+  color: var(--trae-text-default-hover);
+}
+
+.trae-comment-btn-text:active:not(:disabled) {
+  border-radius: 8px;
+  background: var(--trae-bg-overlay-l2);
+  color: var(--trae-text-default-active);
+}
+
+.trae-comment-btn-text:disabled {
+  background: transparent;
+  color: var(--trae-text-disabled);
+}
+
+.trae-marking-btn {
+  justify-content: center;
+}
+
+.trae-marking-btn:hover:not(:disabled) {
+  background: var(--trae-bg-overlay-l1) !important;
+}
+
+.trae-marking-btn-active {
+  background: var(--bg-bg-brand-disabled, rgba(75, 63, 227, 0.22)) !important;
+  color: var(--icon-icon-brand, var(--trae-icon-brand)) !important;
+}
+
+.trae-marking-btn-active:hover {
+  background: var(--bg-bg-brand-popup, rgba(170, 183, 255, 0.36)) !important;
+  color: var(--icon-icon-brand, var(--trae-icon-brand)) !important;
+}
+
+.trae-marking-btn:active:not(:disabled) {
+  background: var(--trae-bg-overlay-l2) !important;
+}
+
+.trae-marking-btn:disabled {
+  color: var(--trae-text-disabled) !important;
+  cursor: not-allowed !important;
+}
+
+.trae-action-button-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--trae-icon-secondary);
+  flex-shrink: 0;
+}
+
+.trae-shortcut-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trae-shortcut-key {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 12px;
+  color: var(--trae-icon-secondary);
+}
+
+.trae-add-to-chat-divider {
+  width: 2px;
+  height: 12px;
+  padding: 0 6px;
+  box-sizing: content-box;
+  background-clip: content-box;
+  background-color: var(--trae-border-l2);
+  flex-shrink: 0;
+}
+
+.trae-editor-view {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding: 8px;
+  background: transparent;
+}
+
+.trae-editor-text-container {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: var(--trae-bg-overlay-l1);
+  border: 1px solid var(--trae-border-l3);
+  border-radius: 4px;
+  gap: 8px;
+}
+
+.trae-editor-textarea {
+  flex: 1;
+  padding: 0 2px;
+  border: none;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--trae-text-default);
+  resize: none;
+  outline: none;
+  overflow-y: auto;
+  max-height: 140px;
+}
+
+.trae-editor-textarea::placeholder {
+  color: var(--trae-text-tertiary);
+}
+
+.trae-editor-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.2s ease-out,
+    opacity 0.2s ease-out,
+    margin-top 0.2s ease-out;
+}
+
+.trae-editor-action-bar-visible {
+  max-height: 32px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+.trae-editor-cancel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 4px;
+  background: var(--trae-bg-overlay-l2);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.trae-editor-cancel-button:hover {
+  background: var(--trae-bg-overlay-l3);
+}
+
+.trae-editor-cancel-button:active {
+  background: var(--trae-bg-overlay-l3);
+}
+
+.trae-editor-cancel-button:focus-visible {
+  outline: 2px solid var(--trae-status-primary);
+  outline-offset: 1px;
+}
+
+.trae-editor-cancel-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--trae-text-default);
+  white-space: nowrap;
+  padding: 0 4px;
+}
+
+.trae-editor-submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 8px;
+  background: var(--trae-bg-invert);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.trae-editor-submit-button:hover {
+  background: var(--trae-bg-invert-hover);
+}
+
+.trae-editor-submit-button:active {
+  background: var(--trae-bg-invert-active);
+}
+
+.trae-editor-submit-button:focus-visible {
+  outline: 2px solid var(--trae-status-primary);
+  outline-offset: 1px;
+}
+
+.trae-editor-submit-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--trae-text-onaccent);
+  white-space: nowrap;
+  padding: 0 4px;
+}
+
+.trae-editor-submit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  color: var(--trae-icon-onaccent);
+  flex-shrink: 0;
+}
+
+.trae-success-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  height: 32px;
+  white-space: nowrap;
+}
+
+.trae-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--trae-status-success);
+  flex-shrink: 0;
+}
+
+.trae-success-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--trae-text-default);
+  user-select: none;
+}
+</style></head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="seal">开张宣言 · v0.1</div>
+    <h1>我决定把一个死号，<br>盘成自己的<span class="em">开源仓库</span></h1>
+    <p class="deck">九篇旧文，一一行礼，然后翻篇。<br>从今天起，这里不再展示成果，只保存过程。</p>
+    <div class="byline">游子行迹 · 2026.08.07</div>
+  </div>
+</header>
+
+<!-- ============ ARTICLE ============ -->
+<article>
+  <div class="wrap">
+
+  <p class="lede">这个号叫《游子吟之孝》，是我大学时参加计算机大赛开的。比赛结束，作品交付，号就睡了。一睡很多年。现在我想把它叫醒——但不是接着写那些旧东西，而是换一种活法。</p>
+
+  <!-- ============ 一、归档仪式 ============ -->
+  <h2>一、<span class="em">归档仪式</span>：九篇旧文，一一行礼</h2>
+
+  <p class="dropcap">在我把这个号翻新之前，我觉得欠那些旧文章一个正式的告别。它们不该被悄悄删掉，像从来没存在过。删可以，但删之前要让它们站好最后一岗——让我记住自己写过什么，也让你知道这个号从哪里来。</p>
+
+  <p>我把公众号里全部九篇文章翻了一遍。坦白说，它们大多是"项目附属品"——为了比赛、为了课堂、为了交差而写，写完就再没碰过。内容本身不能说差，但它们和我这个人没有真正的关系，更像是借了我的号发出来的通稿。</p>
+
+  <div class="archive-box">
+    <div class="ab-head">
+      <span class="ab-title">v1.0 遗产清单 · 九篇旧文</span>
+      <span class="ab-tag">ARCHIVE</span>
+    </div>
+    <ul class="arch-list">
+      <li>
+        <span class="num">01</span>
+        <span class="ttl">《游子吟——孝道文化，德润人生》课程回顾<small>微课视频回顾：孟郊故事、诗句注释译文、课堂情感互动</small></span>
+        <span class="verdict">项目残留 · 删</span>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <span class="ttl">皮影艺术的魅力<small>皮影戏历史与艺术价值科普，通稿式介绍</small></span>
+        <span class="verdict">项目残留 · 删</span>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <span class="ttl">同 01（重复）<small>内容与第一篇完全相同</small></span>
+        <span class="verdict">重复 · 删</span>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <span class="ttl">同 02（重复）<small>内容与第二篇完全相同</small></span>
+        <span class="verdict">重复 · 删</span>
+      </li>
+      <li>
+        <span class="num">05</span>
+        <span class="ttl">"临行密密缝"是为了更好的相逢<small>考据"密密缝"实为谐音"逢"的民俗，质疑课本直译</small></span>
+        <span class="verdict keep">求真种子 · 留魂</span>
+      </li>
+      <li>
+        <span class="num">06</span>
+        <span class="ttl">（内容已不可见）<small>疑似已删或被系统清理</small></span>
+        <span class="verdict">空壳 · 删</span>
+      </li>
+      <li>
+        <span class="num">07</span>
+        <span class="ttl">城市形象短视频测试调查——四川甘孜<small>短视频调研，项目制残留</small></span>
+        <span class="verdict">项目残留 · 删</span>
+      </li>
+      <li>
+        <span class="num">08</span>
+        <span class="ttl">研究117个综测加分学科竞赛<small>国家级/省部级竞赛参赛办法大全</small></span>
+        <span class="verdict">学生实用 · 删</span>
+      </li>
+      <li>
+        <span class="num">09</span>
+        <span class="ttl">广告系友好型学科竞赛有哪些？<small>15项国家级+11项省部级竞赛清单</small></span>
+        <span class="verdict">学生实用 · 删</span>
+      </li>
+    </ul>
+  </div>
+
+  <p>九篇里，有两篇是完全重复的（03 和 01、04 和 02），有一篇已经是空壳（06），其余大多是为比赛和课堂写的通稿——皮影戏科普、课程回顾、综测竞赛攻略。它们服务的是当时的任务，任务结束，它们也就完成了使命。</p>
+
+  <p>但有一篇不一样。</p>
+
+  <blockquote>第 05 篇，讲"临行密密缝"。课本翻译是"针脚缝得密实"，但那篇文章去查了民俗学，发现"密密缝"其实是谐音"逢"——母亲在衣服上密密地缝，是在密密地"逢"，盼的是远行的人早归再相逢。它甚至解释了为什么课本要选直译：因为翻译题讲究"字字落实"。</blockquote>
+
+  <p>这篇没有为谁交差。它是因为<mark class="key">觉得课本的解释不够好，想弄清楚到底怎么回事</mark>，才去查、去写。它做的事情，本质上就是"质疑一个标准答案，然后去求证真相"。</p>
+
+  <p>这不正是我现在想做的事吗？</p>
+
+  <div class="callout">
+    <span class="label">留魂</span>
+    <p>九篇删八篇，但第 05 篇的<span class="hl">那股较真劲儿</span>，我留下来了。它不是文章本身，是文章背后那个"想弄清楚到底怎么回事"的我。新号里的「求真手记」栏目，就是从这颗种子长出来的。</p>
+  </div>
+
+  <p>所以归档不是"全部否定过去"。它是承认：过去的多数内容已经过时，但过去那个我，已经在某些瞬间闪过对的光。现在我要做的，是把那些光接住，让它持续亮下去。</p>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ============ 二、翻篇 ============ -->
+  <h2>二、<span class="em">翻篇</span>：从橱窗到仓库</h2>
+
+  <p>旧号的问题不是写得不好，是<mark class="key">它只展示结果，不保存过程</mark>。它像一个橱窗：比赛作品摆进去，拍完照，灯就关了。橱窗会过期，因为里面的东西是静态的——它记录"完成了什么"，不记录"怎么完成的、失败了几次、第几版才跑通"。</p>
+
+  <p>我想换一个比喻：仓库。</p>
+
+  <p>仓库不挑光鲜的东西，它什么都收。失败的下废了的版本、踩过的坑、被否定的方案、走了弯路才发现的正确答案——这些东西在橱窗里会被藏起来，在仓库里却是<mark class="key">最有价值的存货</mark>。因为别人照着你的失败过程，能少走弯路；你自己翻回去看，能记得"事情不是一蹴而就的"。</p>
+
+  <p>所以这个号的新定位是：<strong>一个不实名、开源式的个人成长档案。</strong>用版本化的方式，公开记录我从失败到跑通的完整过程，让人生有迹可循，让他人可循迹复现。</p>
+
+  <p>四个关键词，也是每一篇文章的准入标准——</p>
+
+  <div class="promise">
+    <div class="p-title">四条底线</div>
+    <ul>
+      <li><strong>开源式</strong>：过程公开、可复现、欢迎探讨，像代码仓库而非朋友圈</li>
+      <li><strong>版本化</strong>：每件事都有 1.0、2.0……N.0，承认迭代是常态</li>
+      <li><strong>过程完整</strong>：失败次数、踩坑细节、修正路径都要写清楚</li>
+      <li><strong>不实名</strong>：以笔名分享，重内容轻身份，互联网开源精神</li>
+    </ul>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ============ 三、五个栏目 ============ -->
+  <h2>三、<span class="em">目录</span>：五个栏目，一条暗线</h2>
+
+  <p>旧号没有栏目，想到什么发什么，所以像散落一地的零件。新号先搭好架子，再往里填东西。五个栏目加一条暗线，所有内容都有归处。</p>
+
+  <div class="col-grid">
+    <div class="col-row">
+      <div class="cn">i</div>
+      <div class="cd">
+        <h4>迭代志<span class="en">ITERATION CHRONICLE</span></h4>
+        <p>一个项目从失败到跑通的完整版本演进。每篇配"版本条形图"，写清第几版才成、前面几版卡在哪。</p>
+      </div>
+    </div>
+    <div class="col-row">
+      <div class="cn">ii</div>
+      <div class="cd">
+        <h4>过关记<span class="en">CROSSING GATES</span></h4>
+        <p>签证、办事、各类流程攻略的逐版本通关实录，让读者照着最终版能办成。</p>
+      </div>
+    </div>
+    <div class="col-row">
+      <div class="cn">iii</div>
+      <div class="cd">
+        <h4>行迹与城邦<span class="en">FOOTPRINTS &amp; CITIES</span></h4>
+        <p>城市旅游研究报告加足迹细节，不是打卡照，而是"我如何研究一座城"。</p>
+      </div>
+    </div>
+    <div class="col-row">
+      <div class="cn">iv</div>
+      <div class="cd">
+        <h4>求真手记<span class="en">TRUTH-SEEKING NOTES</span></h4>
+        <p>怎么思考一个问题、怎么做数据分析、怎么确认一件事是真的。这颗种子，来自第 05 篇旧文。</p>
+      </div>
+    </div>
+    <div class="col-row">
+      <div class="cn">v</div>
+      <div class="cd">
+        <h4>成长原档<span class="en">GROWTH RAW FILES</span></h4>
+        <p>感悟、学习经验、生活随笔、成长轨迹——所有不那么硬但真诚的内容归此。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="label">暗线</span>
+    <p>还有一条<span class="hl">「失败档案馆」</span>，不是第六个栏目，而是贯穿所有的标签。任何文章里失败的版本、踩过的坑、被否定的方案，都额外打上这个标签归档。失败不是要删掉的污点，而是要编目的资产——九篇旧文今天归档，就是这个档案馆的第一批藏品。</p>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ============ 四、承诺 ============ -->
+  <h2>四、<span class="em">承诺</span>：写给你，也写给未来的自己</h2>
+
+  <p>最后，是几条写给读者的承诺，也是写给未来自己的提醒。以后每篇文章动笔前，我都会拿这几条对照一遍。</p>
+
+  <div class="promise">
+    <div class="p-title">五条法则</div>
+    <ul>
+      <li><strong>真实 &gt; 完美</strong>：宁可暴露笨拙的过程，不包装光鲜的结论</li>
+      <li><strong>过程 &gt; 结论</strong>：结论一句话能说完，过程才是价值所在</li>
+      <li><strong>可复现 &gt; 可观赏</strong>：让读者照着记录能重走一遍，而不是赞叹就划走</li>
+      <li><strong>失败可见</strong>：每次失败写清第几版、卡在哪、怎么改</li>
+      <li><strong>版本化思维</strong>：万事皆版本，文章本身也可以从 v1.0 升到 v2.0</li>
+    </ul>
+  </div>
+
+  <p>我会在这里写 VPN 下废了多少次才找到正确渠道、AI 视频迭代到第四版才成的全过程、越南签证从 1.0 试到 8.0 的每个踩坑细节。不是为了证明我厉害——恰恰相反，是为了让所有人看见，<mark class="key">事情从不是一蹴而就的，而是不停迭代、不停解决问题、不停优化</mark>。</p>
+
+  <p>也包括我是怎么思考一个问题的，怎么做一次数据分析的，怎么确认一件事是不是真的。这些方法不一定对，但至少是真实的、可被检验的。欢迎你来挑毛病、来探讨、来用你自己的实践修正我。这就是"开源"的意思。</p>
+
+  <p>这个号不实名。不是因为怕什么，而是因为我想让焦点落在内容上，不落在人设上。你不需要知道我是谁，你只需要判断我写的东西有没有用。有用就拿走，没用就划走，简单。</p>
+
+  <p>旧号叫《游子吟之孝》，借的是孟郊那首诗里"远行"的意象。新号叫<strong>《游子行迹》</strong>——"游子"留住来路与情感，"行迹"指明去向与方法。我依旧在远行，只是这次想把路上的脚印，一行一行留下来。</p>
+
+  <div class="divider">· · ·</div>
+
+  <p style="text-align:center; font-family:'Lora',serif; font-style:italic; font-size:1.25rem; color:var(--accent); margin-top:2.5rem;">游子不停，行迹不止。</p>
+
+  <p style="text-align:center; font-size:0.92rem; color:var(--muted); margin-top:0.6rem;">这是开张宣言的 v0.1。等它被你和时间检验过，我再升到 v1.0。</p>
+
+  </div>
+</article>
+
+<!-- ============ COLOPHON ============ -->
+<footer class="colophon">
+  <div class="wrap">
+    <div class="mark">游子行迹</div>
+    <div class="meta">WANDERER'S TRACES · 开张宣言 v0.1 · 2026.08.07</div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div data-trae-edit-ui="true"><div data-trae-edit-ui="true" class="trae-browser-inspect-highlight-tag"></div><div data-trae-edit-ui="true" class="trae-browser-inspect-highlight-tag"></div><div data-trae-edit-ui="true" class="trae-browser-inspect-highlight-box"></div><div data-trae-edit-ui="true" class="trae-browser-inspect-highlight-box trae-browser-inspect-select-highlight-box"></div><div data-trae-edit-ui="true" class="trae-add-to-chat-card trae-browser-inspect-select-button" style="display: none;"><div data-trae-edit-ui="true" class="trae-add-to-chat-content"><div data-trae-edit-ui="true" class="trae-buttons-view"><button data-trae-edit-ui="true" type="button" class="trae-action-button"><span data-trae-edit-ui="true" class="trae-action-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M14.3332 8.0013C14.3332 11.3346 11.8702 13.3346 7.99984 13.3346C6.8331 13.3346 5.60267 13.2116 4.56857 12.668C4.56857 12.668 3.07391 13.7639 1.6665 13.0972C2.70858 11.7228 2.44754 10.7933 2.38257 10.6161C2.37481 10.595 2.36622 10.576 2.35754 10.5552C2.26265 10.3277 1.6665 8.86419 1.6665 8.0013C1.6665 4.66797 4.12947 2.66797 7.99984 2.66797" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+    <path d="M5.99951 7.41797C6.32157 7.41797 6.58332 7.67896 6.5835 8.00098C6.5835 8.32314 6.32168 8.58496 5.99951 8.58496C5.6775 8.58479 5.4165 8.32303 5.4165 8.00098C5.41668 7.67907 5.6776 7.41814 5.99951 7.41797ZM9.99951 7.41797C10.3216 7.41797 10.5833 7.67896 10.5835 8.00098C10.5835 8.32314 10.3217 8.58496 9.99951 8.58496C9.6775 8.58479 9.4165 8.32303 9.4165 8.00098C9.41668 7.67907 9.6776 7.41814 9.99951 7.41797Z" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="square"></path>
+    <path d="M15.001 4L13 3L12 1L11 3L9 4L11 5L12 7L13 5L15.001 4Z" fill="currentColor"></path>
+  </svg></span><span data-trae-edit-ui="true" class="trae-action-button-title" data-i18n="commentToChat">添加评论到对话</span><span data-trae-edit-ui="true" class="trae-action-button-shortcut"><span data-trae-edit-ui="true" class="trae-shortcut-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <path d="M3 4.5H4.5V3C4.5 2.17157 3.82843 1.5 3 1.5C2.17157 1.5 1.5 2.17157 1.5 3C1.5 3.82843 2.17157 4.5 3 4.5ZM3 4.5H9M9 4.5H7.5V3C7.5 2.17157 8.17157 1.5 9 1.5C9.82843 1.5 10.5 2.17157 10.5 3C10.5 3.82843 9.82843 4.5 9 4.5ZM9 7.5H7.5V9C7.5 9.82843 8.17157 10.5 9 10.5C9.82843 10.5 10.5 9.82843 10.5 9C10.5 8.17157 9.82843 7.5 9 7.5ZM9 7.5H3M3 7.5H4.5V9C4.5 9.82843 3.82843 10.5 3 10.5C2.17157 10.5 1.5 9.82843 1.5 9C1.5 8.17157 2.17157 7.5 3 7.5ZM4.5 4.5H7.5V7.5H4.5V4.5Z" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg><span data-trae-edit-ui="true" class="trae-shortcut-key">J</span></span></span></button><div data-trae-edit-ui="true" class="trae-add-to-chat-divider"></div><button data-trae-edit-ui="true" type="button" class="trae-action-button"><span data-trae-edit-ui="true" class="trae-action-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M14.3333 8.0013C14.3333 4.66797 11.8703 2.66797 7.99996 2.66797C4.12959 2.66797 1.66663 4.66797 1.66663 8.0013C1.66663 8.86419 2.26277 10.3277 2.35767 10.5552C2.36634 10.576 2.37493 10.595 2.38269 10.6161C2.44766 10.7933 2.7087 11.7228 1.66663 13.0972C3.07403 13.7639 4.5687 12.668 4.5687 12.668C5.60279 13.2116 6.83323 13.3346 7.99996 13.3346C11.8703 13.3346 14.3333 11.3346 14.3333 8.0013Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"></path>
+    <path d="M4.99963 7.41797C5.32169 7.41797 5.58344 7.67896 5.58362 8.00098C5.58362 8.32314 5.3218 8.58496 4.99963 8.58496C4.67762 8.58479 4.41663 8.32303 4.41663 8.00098C4.4168 7.67907 4.67773 7.41814 4.99963 7.41797ZM7.99963 7.41797C8.32169 7.41797 8.58344 7.67896 8.58362 8.00098C8.58362 8.32314 8.3218 8.58496 7.99963 8.58496C7.67762 8.58479 7.41663 8.32303 7.41663 8.00098C7.4168 7.67907 7.67773 7.41814 7.99963 7.41797ZM10.9996 7.41797C11.3217 7.41797 11.5834 7.67896 11.5836 8.00098C11.5836 8.32314 11.3218 8.58496 10.9996 8.58496C10.6776 8.58479 10.4166 8.32303 10.4166 8.00098C10.4168 7.67907 10.6777 7.41814 10.9996 7.41797Z" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="square"></path>
+  </svg></span><span data-trae-edit-ui="true" class="trae-action-button-title" data-i18n="addToChat">添加到对话</span><span data-trae-edit-ui="true" class="trae-action-button-shortcut"><span data-trae-edit-ui="true" class="trae-shortcut-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <path d="M9.5 3V6.5C9.5 7.05228 9.05228 7.5 8.5 7.5H3M3 7.5L5 5.5M3 7.5L5 9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></span></span></button></div></div></div><div data-trae-edit-ui="true" class="trae-browser-inspect-overlay" style="display: none;"></div></div><div data-trae-edit-ui="true" class="trae-add-to-chat-card" style="display: none; position: fixed; z-index: 90030;"><div data-trae-edit-ui="true" class="trae-add-to-chat-content"><div data-trae-edit-ui="true" class="trae-buttons-view"><button data-trae-edit-ui="true" type="button" class="trae-action-button"><span data-trae-edit-ui="true" class="trae-action-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M14.3332 8.0013C14.3332 11.3346 11.8702 13.3346 7.99984 13.3346C6.8331 13.3346 5.60267 13.2116 4.56857 12.668C4.56857 12.668 3.07391 13.7639 1.6665 13.0972C2.70858 11.7228 2.44754 10.7933 2.38257 10.6161C2.37481 10.595 2.36622 10.576 2.35754 10.5552C2.26265 10.3277 1.6665 8.86419 1.6665 8.0013C1.6665 4.66797 4.12947 2.66797 7.99984 2.66797" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+    <path d="M5.99951 7.41797C6.32157 7.41797 6.58332 7.67896 6.5835 8.00098C6.5835 8.32314 6.32168 8.58496 5.99951 8.58496C5.6775 8.58479 5.4165 8.32303 5.4165 8.00098C5.41668 7.67907 5.6776 7.41814 5.99951 7.41797ZM9.99951 7.41797C10.3216 7.41797 10.5833 7.67896 10.5835 8.00098C10.5835 8.32314 10.3217 8.58496 9.99951 8.58496C9.6775 8.58479 9.4165 8.32303 9.4165 8.00098C9.41668 7.67907 9.6776 7.41814 9.99951 7.41797Z" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="square"></path>
+    <path d="M15.001 4L13 3L12 1L11 3L9 4L11 5L12 7L13 5L15.001 4Z" fill="currentColor"></path>
+  </svg></span><span data-trae-edit-ui="true" class="trae-action-button-title" data-i18n="commentToChat">添加评论到对话</span><span data-trae-edit-ui="true" class="trae-action-button-shortcut"><span data-trae-edit-ui="true" class="trae-shortcut-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <path d="M3 4.5H4.5V3C4.5 2.17157 3.82843 1.5 3 1.5C2.17157 1.5 1.5 2.17157 1.5 3C1.5 3.82843 2.17157 4.5 3 4.5ZM3 4.5H9M9 4.5H7.5V3C7.5 2.17157 8.17157 1.5 9 1.5C9.82843 1.5 10.5 2.17157 10.5 3C10.5 3.82843 9.82843 4.5 9 4.5ZM9 7.5H7.5V9C7.5 9.82843 8.17157 10.5 9 10.5C9.82843 10.5 10.5 9.82843 10.5 9C10.5 8.17157 9.82843 7.5 9 7.5ZM9 7.5H3M3 7.5H4.5V9C4.5 9.82843 3.82843 10.5 3 10.5C2.17157 10.5 1.5 9.82843 1.5 9C1.5 8.17157 2.17157 7.5 3 7.5ZM4.5 4.5H7.5V7.5H4.5V4.5Z" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg><span data-trae-edit-ui="true" class="trae-shortcut-key">J</span></span></span></button><div data-trae-edit-ui="true" class="trae-add-to-chat-divider"></div><button data-trae-edit-ui="true" type="button" class="trae-action-button"><span data-trae-edit-ui="true" class="trae-action-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M14.3333 8.0013C14.3333 4.66797 11.8703 2.66797 7.99996 2.66797C4.12959 2.66797 1.66663 4.66797 1.66663 8.0013C1.66663 8.86419 2.26277 10.3277 2.35767 10.5552C2.36634 10.576 2.37493 10.595 2.38269 10.6161C2.44766 10.7933 2.7087 11.7228 1.66663 13.0972C3.07403 13.7639 4.5687 12.668 4.5687 12.668C5.60279 13.2116 6.83323 13.3346 7.99996 13.3346C11.8703 13.3346 14.3333 11.3346 14.3333 8.0013Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"></path>
+    <path d="M4.99963 7.41797C5.32169 7.41797 5.58344 7.67896 5.58362 8.00098C5.58362 8.32314 5.3218 8.58496 4.99963 8.58496C4.67762 8.58479 4.41663 8.32303 4.41663 8.00098C4.4168 7.67907 4.67773 7.41814 4.99963 7.41797ZM7.99963 7.41797C8.32169 7.41797 8.58344 7.67896 8.58362 8.00098C8.58362 8.32314 8.3218 8.58496 7.99963 8.58496C7.67762 8.58479 7.41663 8.32303 7.41663 8.00098C7.4168 7.67907 7.67773 7.41814 7.99963 7.41797ZM10.9996 7.41797C11.3217 7.41797 11.5834 7.67896 11.5836 8.00098C11.5836 8.32314 11.3218 8.58496 10.9996 8.58496C10.6776 8.58479 10.4166 8.32303 10.4166 8.00098C10.4168 7.67907 10.6777 7.41814 10.9996 7.41797Z" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="square"></path>
+  </svg></span><span data-trae-edit-ui="true" class="trae-action-button-title" data-i18n="addToChat">添加到对话</span><span data-trae-edit-ui="true" class="trae-action-button-shortcut"><span data-trae-edit-ui="true" class="trae-shortcut-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <path d="M9.5 3V6.5C9.5 7.05228 9.05228 7.5 8.5 7.5H3M3 7.5L5 5.5M3 7.5L5 9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></span></span></button></div></div></div><div data-trae-edit-ui="true" class="trae-image-download-btn" title="Download image" style="position: fixed; display: none; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; background: var(--trae-bg-menu, #222427); border: 1px solid var(--trae-border-l2, rgba(255,255,255,0.12)); box-shadow: var(--trae-floating-shadow, 0px 2px 8px 0px rgba(0,0,0,0.2)); color: var(--trae-icon-default, #f5f9fe); cursor: pointer; z-index: 89990; transition: background 0.15s; pointer-events: auto;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg></div></body></html>
